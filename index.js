@@ -1,44 +1,11 @@
-//connect html to js//
+var playPause = document.getElementById("playPause");
+var stop = document.getElementById("stop");
+var forward = document.getElementById("forward");
+var backward = document.getElementById("backward");
+var myAudio = document.getElementById('myAudio'); 
+var msg = document.getElementById('name'); 
 
-var play = document.getElementById("play");
-var pause = document.getElementById("pause");
-// var myAudio = document.getElementById("myAudio");
-var array = ['songs/Minstrel.mp3']
-var myAudio = new Audio();
-myAudio.src = array[0];
-// addEventListener('ended',
 
-class Jukebox(){
-
-	playAud(){
-	    myAudio.play();}
-	 pauseAud(){	   
-	    myAudio.pause();}
-};
-
-var juke = new Jukebox()
-
-play.addEventListener("click", juke.playAud);
-pause.addEventListener("click", juke.pauseAud);
-
-//play and pause button//
-// function playVid(){
-// 	if (aud.paused){
-//         aud.play();
-//         playPause.innerHTML="pause";
-
-//     } else {
-//         aud.pause();
-//         playPause.innerHTML="play";
-//         }
-// }
-
-// function playVid(){
-// 	myAudio.src = array[0];
-// 	myAudio.play()
-// }
-
-//playlist templates//
 class Song{
 	constructor(fileName){ 
 	this.fileName = fileName;}
@@ -59,12 +26,87 @@ function Songlist(){
 
 //create/add music list//
 var song1 = new Song('songs/Seasonal.mp3');
-var song2 = new Song('songs/Minstrel.mp3'); 
+var song2 = new Song('songs/Minstrel.mp3');
+var song3 = new Song('songs/Landras_Dream.mp3');  
 var allMusic = new Songlist(); 
 allMusic.addSong(song1)
 allMusic.addSong(song2)
+allMusic.addSong(song3)
 
-// aud.src = url allMusic.songs[0].fileName;
+
+var empty = []
+for(let i = 0;i< allMusic.songs.length;i++){
+empty.push(allMusic.songs[i].fileName)}
+
+var array = empty;
+var currentSong = 0;
+
+class Jukebox{
+	playPause(){
+		if (myAudio.paused) {
+			myAudio.play();
+			playPause.innerHTML = "pause";
+			msg.innerHTML = array[currentSong];
+		} else {
+			myAudio.pause();
+			playPause.innerHTML = "play";
+			msg.innerHTML = array[currentSong];
+		}
+	}	
+	// playAud(){
+	//     myAudio.play();
+	// }
+	// pauseAud(){	   
+	//     myAudio.pause();
+	// }	
+	stopAud(){	   
+	    
+	    myAudio.setAttribute("src", array[0])
+	    myAudio.pause();
+	    console.log('stop')
+	}
+	forward(){
+	if(currentSong === array.length-1){	
+		currentSong = 0;
+		myAudio.setAttribute("src", array[currentSong]);
+		console.log("reload");
+		msg.innerHTML = array[currentSong];
+	} else{
+		console.log("In else statement");
+		currentSong++;
+		myAudio.setAttribute("src", array[currentSong]);
+		msg.innerHTML = array[currentSong];
+	}
+	 myAudio.play()
+	}
+    backward(){
+	if(currentSong === 0){	
+		currentSong = 0;
+		myAudio.setAttribute("src", array[currentSong]);
+		console.log("first");
+		msg.innerHTML = array[currentSong];
+
+	} else{
+		console.log("In else statement");
+		currentSong--;
+		myAudio.setAttribute("src", array[currentSong]);
+		msg.innerHTML = array[currentSong];
+
+	}
+	myAudio.play()
+	}
+
+
+};
+
+var juke = new Jukebox()
+
+playPause.addEventListener("click", juke.playPause);
+stop.addEventListener("click", juke.stopAud);
+forward.addEventListener("click", juke.forward);
+backward.addEventListener("click", juke.backward);
+
+
 
 
 

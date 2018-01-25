@@ -2,4 +2,19 @@
 	width: 50px;
 	height: 50px;
 	border: 1px solid;
+	border-radius: 3px;
+}
+
+.playPause:hover {
+	opacity: 0.5;
+}
+
+#name{
+	width: 210px;
+	height: 50px;
+	border: 1px solid;
+	border-radius: 3px;
+	margin-top: 20px;
+	text-align: center;
+	padding-top: 10px
 }
