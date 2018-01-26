@@ -4,6 +4,7 @@ var forward = document.getElementById("forward");
 var backward = document.getElementById("backward");
 var volumeUp = document.getElementById('volumeUp');
 var volumeDown = document.getElementById('volumeDown'); 
+var shuffle = document.getElementById('shuffle');
 var myAudio = document.getElementById('myAudio'); 
 var msg = document.getElementById('name'); 
 
@@ -29,11 +30,17 @@ function Songlist(){
 //create/add music list//
 var song1 = new Song('songs/Seasonal.mp3');
 var song2 = new Song('songs/Minstrel.mp3');
-var song3 = new Song('songs/Landras_Dream.mp3');  
+var song3 = new Song('songs/Landras_Dream.mp3');
+var song4 = new Song('songs/Raw_Deal.mp3');
+var song5 = new Song('songs/La_La_La.mp3');
+var song6 = new Song('songs/Travel_Light.mp3');       
 var allMusic = new Songlist(); 
 allMusic.addSong(song1)
 allMusic.addSong(song2)
 allMusic.addSong(song3)
+allMusic.addSong(song4)
+allMusic.addSong(song5)
+allMusic.addSong(song6)
 
 
 var empty = []
@@ -41,7 +48,7 @@ for(let i = 0;i< allMusic.songs.length;i++){
 empty.push(allMusic.songs[i].fileName)}
 
 var array = empty;
-var currentSong = 0;
+var currentSong = 1;
 myAudio.volume = 0.5;
 
 class Jukebox{
@@ -114,6 +121,12 @@ class Jukebox{
 		myAudio.volume -= 0.1;
 	}
 	}
+	shuffle(){
+        var r = Math.floor((Math.random()*array.length));
+        currentSong = r;
+        myAudio.setAttribute("src", array[currentSong]);
+        msg.innerHTML = array[currentSong];
+	}
 
 };
 
@@ -125,6 +138,8 @@ forward.addEventListener("click", juke.forward);
 backward.addEventListener("click", juke.backward);
 volumeUp.addEventListener("click", juke.volumeUp);
 volumeDown.addEventListener("click", juke.volumeDown);
+shuffle.addEventListener("click", juke.shuffle);
+myAudio.addEventListener("ended", juke.forward);
 
 
 

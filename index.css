@@ -4,7 +4,7 @@
 	height: 500px;
 	border: 2px solid;
 	border-radius: 15px;
-	text-align: center;
+/*	text-align: center;*/
 
 }
 
@@ -73,13 +73,28 @@
 	opacity: 0.5;
 }
 
-#name{
+#screen{
 	position: relative;
 	width: 300px;
 	height: 200px;
 	border: 1px solid;
 	border-radius: 3px;
 	margin: 10px auto;
-	text-align: center;
-	padding-top: 10px
+	padding-top: 10px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#name{
+	width: 290px;
+	height: 20px;
+    animation: move ease-in-out infinite 8s;
+    position: relative;
+    padding: 0 3px;
+
+}
+
+@keyframes move{
+	0%   {left:300px; top:0px;}
+    100% {left:-150px; top:0px;}
 }
