@@ -2,6 +2,8 @@ var playPause = document.getElementById("playPause");
 var stop = document.getElementById("stop");
 var forward = document.getElementById("forward");
 var backward = document.getElementById("backward");
+var volumeUp = document.getElementById('volumeUp');
+var volumeDown = document.getElementById('volumeDown'); 
 var myAudio = document.getElementById('myAudio'); 
 var msg = document.getElementById('name'); 
 
@@ -40,6 +42,7 @@ empty.push(allMusic.songs[i].fileName)}
 
 var array = empty;
 var currentSong = 0;
+myAudio.volume = 0.5;
 
 class Jukebox{
 	playPause(){
@@ -59,10 +62,10 @@ class Jukebox{
 	// pauseAud(){	   
 	//     myAudio.pause();
 	// }	
-	stopAud(){	   
-	    
+	stopAud(){	       
 	    myAudio.setAttribute("src", array[0])
 	    myAudio.pause();
+	    playPause.innerHTML = "play";
 	    console.log('stop')
 	}
 	forward(){
@@ -95,7 +98,22 @@ class Jukebox{
 	}
 	myAudio.play()
 	}
-
+	volumeUp(){
+		console.log('Up')
+		if (myAudio.volume === 1){
+			myAudio.volume === 1;
+		} else {
+		myAudio.volume += 0.1;
+	}
+	}
+	volumeDown(){
+		console.log('Down')
+		if (myAudio.volume === 1){
+			myAudio.volume = 1;
+		} else {
+		myAudio.volume -= 0.1;
+	}
+	}
 
 };
 
@@ -105,6 +123,8 @@ playPause.addEventListener("click", juke.playPause);
 stop.addEventListener("click", juke.stopAud);
 forward.addEventListener("click", juke.forward);
 backward.addEventListener("click", juke.backward);
+volumeUp.addEventListener("click", juke.volumeUp);
+volumeDown.addEventListener("click", juke.volumeDown);
 
 
 

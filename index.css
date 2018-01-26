@@ -1,6 +1,70 @@
+#ipod {
+	position: absolute;
+	width: 325px;
+	height: 500px;
+	border: 2px solid;
+	border-radius: 15px;
+	text-align: center;
+
+}
+
+#circle {
+	position: relative;
+	width: 215px;
+	height: 215px;
+	border: 1px solid;
+	border-radius: 50%;
+	text-align: center;
+	margin: 25px auto 50px;
+}
+
+#SMcircle{
+    position: relative;
+	width: 85px;
+	height: 85px;
+	border: 1px solid;
+	border-radius: 50%;
+	text-align: center;
+	margin: 0px auto;
+
+}
+
+#playPause {
+    position: relative;	
+	border: 1px solid;
+	border-radius: 3px;
+	margin: 17.5px auto;
+	left:17.5px;
+
+}
+
+#backward {
+    position: relative;	
+	border: 1px solid;
+	border-radius: 3px;
+	top:77.5px;
+	right:92.5px;	
+}
+
+#forward {
+    position: relative;	
+	border: 1px solid;
+	border-radius: 3px;
+	bottom:77.5px;
+	left:92.5px;	
+}
+
+#stop {
+    position: relative;	
+	border: 1px solid;
+	border-radius: 3px;
+	margin: 17.5px auto;
+	right:17.5px;
+}
+
 .playPause {
-	width: 50px;
-	height: 50px;
+	width: 30px;
+	height: 30px;
 	border: 1px solid;
 	border-radius: 3px;
 }
@@ -10,11 +74,12 @@
 }
 
 #name{
-	width: 210px;
-	height: 50px;
+	position: relative;
+	width: 300px;
+	height: 200px;
 	border: 1px solid;
 	border-radius: 3px;
-	margin-top: 20px;
+	margin: 10px auto;
 	text-align: center;
 	padding-top: 10px
 }
