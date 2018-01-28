@@ -80,21 +80,22 @@
 	border: 1px solid;
 	border-radius: 3px;
 	margin: 10px auto;
-	padding-top: 10px;
 	overflow: hidden;
     text-overflow: ellipsis;
+    text-align: center
 }
 
 #name{
 	width: 290px;
 	height: 20px;
-    animation: move ease-in-out infinite 8s;
+    animation: move ease-in-out infinite 10s;
     position: relative;
-    padding: 0 3px;
-
+    padding: 0px 10px;
+    animation-play-state: running;
 }
 
+
 @keyframes move{
-	0%   {left:300px; top:0px;}
-    100% {left:-150px; top:0px;}
+	0%   {left:210px;}
+    100% {left:-220px;}
 }

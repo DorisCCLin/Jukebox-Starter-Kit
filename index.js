@@ -6,7 +6,8 @@ var volumeUp = document.getElementById('volumeUp');
 var volumeDown = document.getElementById('volumeDown'); 
 var shuffle = document.getElementById('shuffle');
 var myAudio = document.getElementById('myAudio'); 
-var msg = document.getElementById('name'); 
+var msg = document.getElementById('name');
+var time = document.getElementById('time');  
 
 
 class Song{
@@ -48,8 +49,12 @@ for(let i = 0;i< allMusic.songs.length;i++){
 empty.push(allMusic.songs[i].fileName)}
 
 var array = empty;
-var currentSong = 1;
+var currentSong = 0;
 myAudio.volume = 0.5;
+
+time.innerHTML = myAudio.currentTime;
+
+
 
 class Jukebox{
 	playPause(){
@@ -57,22 +62,19 @@ class Jukebox{
 			myAudio.play();
 			playPause.innerHTML = "pause";
 			msg.innerHTML = array[currentSong];
+			msg.style.WebkitAnimationPlayState = "running";
 		} else {
 			myAudio.pause();
 			playPause.innerHTML = "play";
 			msg.innerHTML = array[currentSong];
+			msg.style.WebkitAnimationPlayState = "paused";
 		}
-	}	
-	// playAud(){
-	//     myAudio.play();
-	// }
-	// pauseAud(){	   
-	//     myAudio.pause();
-	// }	
+	}		
 	stopAud(){	       
 	    myAudio.setAttribute("src", array[0])
 	    myAudio.pause();
 	    playPause.innerHTML = "play";
+	    msg.style.WebkitAnimationPlayState = "paused";
 	    console.log('stop')
 	}
 	forward(){
