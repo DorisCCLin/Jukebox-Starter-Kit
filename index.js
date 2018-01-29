@@ -52,20 +52,17 @@ var array = empty;
 var currentSong = 0;
 myAudio.volume = 0.5;
 
-time.innerHTML = myAudio.currentTime;
-
-
 
 class Jukebox{
 	playPause(){
 		if (myAudio.paused) {
 			myAudio.play();
-			playPause.innerHTML = "pause";
+			playPause.style.backgroundImage = "url('icons/pause.png')";
 			msg.innerHTML = array[currentSong];
 			msg.style.WebkitAnimationPlayState = "running";
 		} else {
 			myAudio.pause();
-			playPause.innerHTML = "play";
+			playPause.style.backgroundImage = "url('icons/play.png')";
 			msg.innerHTML = array[currentSong];
 			msg.style.WebkitAnimationPlayState = "paused";
 		}

@@ -4,8 +4,10 @@
 	height: 500px;
 	border: 2px solid;
 	border-radius: 15px;
-/*	text-align: center;*/
+}
 
+button {
+	border: none;
 }
 
 #circle {
@@ -31,57 +33,88 @@
 
 #playPause {
     position: relative;	
-	border: 1px solid;
-	border-radius: 3px;
 	margin: 17.5px auto;
 	left:17.5px;
-
+	background-image: url('icons/pause.png');
+	background-size: cover;
 }
 
 #backward {
     position: relative;	
-	border: 1px solid;
-	border-radius: 3px;
-	top:77.5px;
-	right:92.5px;	
+	top:81.5px;
+	right:92.5px;
+	background-image: url('icons/backward.png');
+	background-size: cover;	
 }
 
 #forward {
     position: relative;	
-	border: 1px solid;
-	border-radius: 3px;
-	bottom:77.5px;
+	background-image: url('icons/forward.png');
+	background-size: cover;	
+	bottom:69.5px;
 	left:92.5px;	
 }
 
 #stop {
     position: relative;	
-	border: 1px solid;
-	border-radius: 3px;
 	margin: 17.5px auto;
+	background-image: url('icons/stop.png');
+	background-size: cover;
 	right:17.5px;
 }
 
-.playPause {
+.buttons {
+	position: relative;
 	width: 30px;
 	height: 30px;
-	border: 1px solid;
-	border-radius: 3px;
 }
 
-.playPause:hover {
+.buttons:hover {
 	opacity: 0.5;
 }
+
+#speaker {
+	position: relative;
+	width: 30px;
+	height: 30px;
+	top: 112px;
+	right: 115px;
+}
+
+#volumeUp{
+	position: relative;
+	background-image: url('icons/plus.png');
+	background-size: cover;
+	top: 110px;
+	right: 80px;
+}
+
+#volumeDown{
+	position: relative;
+	background-image: url('icons/minus.png');
+	background-size: cover;
+	top: 110px;
+	right: 48px;
+}
+
+#shuffle {
+	position: relative;
+	background-image: url('icons/shuffle.png');
+	background-size: cover;
+	top: 110px;
+	left: 80px;
+}
+
 
 #screen{
 	position: relative;
 	width: 300px;
-	height: 200px;
+	height: 185px;
 	border: 1px solid;
 	border-radius: 3px;
+	padding-top: 15px;
 	margin: 10px auto;
 	overflow: hidden;
-    text-overflow: ellipsis;
     text-align: center
 }
 
@@ -90,7 +123,7 @@
 	height: 20px;
     animation: move ease-in-out infinite 10s;
     position: relative;
-    padding: 0px 10px;
+    padding: 20px 10px;
     animation-play-state: running;
 }
 
