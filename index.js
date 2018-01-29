@@ -9,7 +9,7 @@ var myAudio = document.getElementById('myAudio');
 var msg = document.getElementById('name');
 var time = document.getElementById('time');  
 
-
+//Song list class//
 class Song{
 	constructor(fileName){ 
 	this.fileName = fileName;}
@@ -44,6 +44,8 @@ allMusic.addSong(song5)
 allMusic.addSong(song6)
 
 
+// Jukebox functions// 
+
 var empty = []
 for(let i = 0;i< allMusic.songs.length;i++){
 empty.push(allMusic.songs[i].fileName)}
@@ -72,53 +74,46 @@ class Jukebox{
 	    myAudio.pause();
 	    playPause.innerHTML = "play";
 	    msg.style.WebkitAnimationPlayState = "paused";
-	    console.log('stop')
 	}
 	forward(){
-	if(currentSong === array.length-1){	
-		currentSong = 0;
-		myAudio.setAttribute("src", array[currentSong]);
-		console.log("reload");
-		msg.innerHTML = array[currentSong];
-	} else{
-		console.log("In else statement");
-		currentSong++;
-		myAudio.setAttribute("src", array[currentSong]);
-		msg.innerHTML = array[currentSong];
-	}
-	 myAudio.play()
+		if(currentSong === array.length-1){	
+			currentSong = 0;
+			myAudio.setAttribute("src", array[currentSong]);
+			msg.innerHTML = array[currentSong];
+		} else{
+			currentSong++;
+			myAudio.setAttribute("src", array[currentSong]);
+			msg.innerHTML = array[currentSong];
+		}
+		myAudio.play()
 	}
     backward(){
-	if(currentSong === 0){	
-		currentSong = 0;
-		myAudio.setAttribute("src", array[currentSong]);
-		console.log("first");
-		msg.innerHTML = array[currentSong];
-
-	} else{
-		console.log("In else statement");
-		currentSong--;
-		myAudio.setAttribute("src", array[currentSong]);
-		msg.innerHTML = array[currentSong];
-
-	}
-	myAudio.play()
+    	if(currentSong === 0){	
+    		currentSong = 0;
+    		myAudio.setAttribute("src", array[currentSong]);
+    		msg.innerHTML = array[currentSong];
+    	} else{
+    		currentSong--;
+    		myAudio.setAttribute("src", array[currentSong]);
+    		msg.innerHTML = array[currentSong];
+    	}
+    	myAudio.play()
 	}
 	volumeUp(){
 		console.log('Up')
 		if (myAudio.volume === 1){
 			myAudio.volume === 1;
 		} else {
-		myAudio.volume += 0.1;
-	}
+			myAudio.volume += 0.1;
+		}
 	}
 	volumeDown(){
 		console.log('Down')
 		if (myAudio.volume === 1){
 			myAudio.volume = 1;
 		} else {
-		myAudio.volume -= 0.1;
-	}
+			myAudio.volume -= 0.1;
+		}
 	}
 	shuffle(){
         var r = Math.floor((Math.random()*array.length));
@@ -126,7 +121,6 @@ class Jukebox{
         myAudio.setAttribute("src", array[currentSong]);
         msg.innerHTML = array[currentSong];
 	}
-
 };
 
 var juke = new Jukebox()
